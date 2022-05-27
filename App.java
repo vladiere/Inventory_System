@@ -10,7 +10,7 @@ public class App {
         List<Items> ite = new ArrayList<Items>();
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
-
+        clearScreen();
         int ch;
         do{
             System.out.println("0: Exit ");
@@ -31,7 +31,7 @@ public class App {
             case 1:
                 clearScreen();
                 int itemID = ThreadLocalRandom.current().nextInt(100000, 999999);
-                DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy HH:MM:SS");
                 Date date = new Date();
                 String dateString = dateformat.format(date);
                 System.out.print("Enter Item Name: ");
@@ -43,6 +43,7 @@ public class App {
                 
 
             break;
+
             case 2:
                 clearScreen();
                 System.out.println("--------------------------------------------------");
@@ -53,6 +54,7 @@ public class App {
                     System.out.println("--------------------------------------------------");
                 }
             break;
+
             case 3:
                 clearScreen();
                 System.out.println("--------------------------------------------------");
@@ -125,7 +127,7 @@ public class App {
                 while(li.hasNext()){
                     Items i = li.next();
                     if(i.getID() == iNumb){
-                        dateformat = new SimpleDateFormat("dd/MM/yyyy");
+                        dateformat = new SimpleDateFormat("dd/MM/yyyy HH:MM:SS");
                         date = new Date();
                         String newdateString = dateformat.format(date);
                         System.out.print("Enter Item Name: ");
@@ -140,6 +142,8 @@ public class App {
                     System.out.println("Item number not found!");
                 }
                 else{
+                    clearScreen();
+                    System.out.println("--------------------------------------------------");
                     System.out.println("Item Successfully UPDATED");
                 }
                 System.out.println("--------------------------------------------------");
@@ -173,6 +177,7 @@ public class App {
             
         }while(ch!=0);
     }
+
     public static void clearScreen() throws IOException, InterruptedException {  
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();  
     }  
